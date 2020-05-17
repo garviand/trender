@@ -1,0 +1,14 @@
+version: '3'
+services:
+  frontend:
+    command: npm start
+    build: ./frontend
+    environment:
+      - NODE_ENV=development
+      - PORT=8100
+    ports:
+      - '8100:8100'
+    volumes: 
+      - ./frontend:/usr/src
+    working_dir: /usr/src
+    tty: true
