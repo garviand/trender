@@ -12,3 +12,15 @@ services:
       - ./frontend:/usr/src
     working_dir: /usr/src
     tty: true
+  backend:
+    command: npm start
+    build: ./backend
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
+    ports:
+      - '8000:8000'
+    volumes: 
+      - ./backend:/usr/src
+    working_dir: /usr/src
+    tty: true
