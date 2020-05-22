@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   frontend:
     command: npm start
     build: ./frontend
@@ -12,6 +13,7 @@ services:
       - ./frontend:/usr/src
     working_dir: /usr/src
     tty: true
+
   backend:
     command: npm start
     build: ./backend
@@ -24,3 +26,12 @@ services:
       - ./backend:/usr/src
     working_dir: /usr/src
     tty: true
+
+  db:
+    image: postgres:12.3-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: TestPass1!
+      POSTGRES_USER: trender
+    ports:
+      - '5433:5432'
